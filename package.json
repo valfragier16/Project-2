@@ -1,0 +1,31 @@
+{
+  "name": "Project-2",
+  "version": "1.0.0",
+  "description": "GW Project #2",
+  "main": "serve.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valfragier16/Project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valfragier16/Project-2/issues"
+  },
+  "homepage": "https://github.com/valfragier16/Project-2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.41.2"
+  }
+}
