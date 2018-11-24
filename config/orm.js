@@ -78,6 +78,21 @@ var orm = {
   
         cb(result);
       });
+    },
+
+    findEmail: function(table, condition1, cb) {
+      var queryString = "SELECT * FROM " + table;
+  
+      queryString += " WHERE username ='" + condition1+ "';";
+      
+      console.log(queryString);
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+  
+        cb(result);
+      });
     }
   };
   
