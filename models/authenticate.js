@@ -18,6 +18,11 @@ var auth = {
     orm.findOne("users", condition1, condition2, function(res) {
       cb(res);
     });
+  },
+  findEmail: function( condition1, cb) {
+    orm.findEmail("users", condition1,  function(res) {
+      cb(res);
+    });
   }
 };
 

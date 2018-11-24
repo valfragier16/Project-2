@@ -60,21 +60,34 @@ router.get("/", function(req, res) {
 
   router.post("/signup", function(req, res) {
     console.log(req.body);
-    auth.create([
-      "username", "password","badges"
-    ], [
-      req.body.user_name,req.body.password, 0
-    ], function(result) {
-        if(result.affectedRows){
-            res.redirect("dashboard");
-        }
-        else{
-            res.redirect("signup");
+    auth.findEmail([req.body.user_name], function(result){
+      if(result){
+        message = "Email Already taken";
+        res.render("signup",{message:message});
 
-        }
-     
-      
+      }
+      else{
+            auth.create([
+                  "username", "password","badges"
+                ], [
+                  req.body.user_name,req.body.password, 0
+                ], function(result) {
+                    if(result.affectedRows){
+                        res.redirect("dashboard");
+                    }
+                    else{
+                        res.redirect("signup");
+
+                    }
+                
+                  
+                });
+
+      }
+
+
     });
+
   });
 
   router.post("/login", function(req, res) {
