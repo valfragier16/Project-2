@@ -6,62 +6,66 @@ var router = express.Router();
 var auth = require("../models/authenticate.js");
 
    var message = "";
-   //var sess = req.session; 
+   var sess = ""; 
 
 router.get("/", function(req, res) {
-    auth.all(function(data) {
-      var hbsObject = {
-        burgers: data
-      };
-      console.log(hbsObject);
-      res.render("index", hbsObject);
-    });
+
+  if(sess){
+    var hbsObject = {
+      userID: sess
+    };
+    res.render("dashboard",hbsObject);
+  }
+  else{
+    message = "Please login";
+    res.render("index");
+  }
   });
 
   router.get("/login", function(req, res) {
-    auth.all(function(data) {
-      var hbsObject = {
-        burgers: data
-      };
-      console.log(hbsObject);
-      res.render("index", hbsObject);
-    });
+
+    res.render("index");
   });
 
   router.get("/signup", function(req, res) {
-    auth.all(function(data) {
-      var hbsObject = {
-        burgers: data
-      };
-      console.log(hbsObject);
-      res.render("signup", hbsObject);
-    });
+
+    res.render("signup");
   });
 
   router.get("/index", function(req, res) {
-    auth.all(function(data) {
+
+    if(sess){
       var hbsObject = {
-        burgers: data
+        activeUserID: sess
       };
-      console.log(hbsObject);
-      res.render("index", hbsObject);
-    });
+      res.render("dashboard",hbsObject);
+    }
+    else{
+      message = "Please login";
+      res.render("index");
+    }
   });
 
   router.get("/dashboard", function(req, res) {
-    auth.all(function(data) {
+    if(sess){
       var hbsObject = {
-        burgers: data
+        userID: sess
       };
       console.log(hbsObject);
-      res.render("dashboard", hbsObject);
-    });
+      res.render("dashboard",hbsObject);
+    }
+    else{
+      message = "Please login";
+      res.redirect("index");
+    }
+
   });
 
   router.post("/signup", function(req, res) {
     console.log(req.body);
     auth.findEmail([req.body.user_name], function(result){
-      if(result){
+      console.log(result);
+      if(result.length >0){
         message = "Email Already taken";
         res.render("signup",{message:message});
 
@@ -71,11 +75,14 @@ router.get("/", function(req, res) {
                   "username", "password","badges"
                 ], [
                   req.body.user_name,req.body.password, 0
-                ], function(result) {
-                    if(result.affectedRows){
+                ], function(result2) {
+                    if(result2.affectedRows){
+                      sess = result2.insertId;
+                      console.log(result2.insertId);
                         res.redirect("dashboard");
                     }
                     else{
+                        message = "Account not created. Try again";
                         res.redirect("signup");
 
                     }
@@ -97,9 +104,11 @@ router.get("/", function(req, res) {
     ], [
       req.body.password
     ], function(result) {
-        //console.log(res.json(result));
+        
         if(result){
-            res.redirect("dashboard");
+          sess = result[0].id;
+          console.log(result[0].id);
+          res.redirect("dashboard");
         }
         else{
             message = "Wrong Credentials";
