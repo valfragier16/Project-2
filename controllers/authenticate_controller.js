@@ -105,7 +105,7 @@ router.get("/", function(req, res) {
       req.body.password
     ], function(result) {
         
-        if(result){
+        if(result.length > 0){
           sess = result[0].id;
           console.log(result[0].id);
           res.redirect("dashboard");
