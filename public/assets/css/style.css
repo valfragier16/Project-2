@@ -44,3 +44,11 @@ h1,form{
   display: table;
   clear: both;
 }
+
+.RMPosters {
+  cursor: pointer;
+}
+
+.modal-dialog,h3,.randomMeals,.searchedMeals{
+  text-align: center;
+}
