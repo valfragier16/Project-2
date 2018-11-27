@@ -120,6 +120,13 @@ router.get("/", function(req, res) {
     });
   });
 
+  router.post("/logout", function(req, res) {
+          sess = "";
+          console.log(sess);
+          
+          res.redirect("index");
+
+  });
 
 
 //   router.put("/api/burgers/:id", function(req, res) {
