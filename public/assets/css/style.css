@@ -18,10 +18,6 @@
   margin-bottom: 5px;
 }
 
-body {
-  background: aqua;
-}
-
 h1,form{
   text-align: center;
 }
@@ -51,4 +47,55 @@ h1,form{
 
 .modal-dialog,h3,.randomMeals,.searchedMeals{
   text-align: center;
+}
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+.logImg {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+  margin-right: 5px;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	/* position: relative; */
+  /* right: -18px; */
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.logoutButton {
+	text-decoration: none;
+  float: right;
+  padding: 12px;
+  margin: 20px;
+  color: white;
+  width: 50px;
+  background-color: black;
+  transition: width .50s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 120px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
 }

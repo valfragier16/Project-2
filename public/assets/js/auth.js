@@ -40,7 +40,6 @@ var video = "";
 
 function callYoutubeModal(enteredVideo){
 
-  if(enteredVideo ===""){
 
   enteredVideo =  enteredVideo.replace("watch?v=", "embed/");
   console.log("entered video" + enteredVideo);
@@ -55,11 +54,7 @@ function callYoutubeModal(enteredVideo){
   ytFrame.attr("src", enteredVideo);
   ytFrame.attr("frameborder", 0);
   $("#ytplayer").append(ytFrame);
-  }
-  else {
-    //do nothing
-  }
-
+  
 }
 
 //========== Modal to Display Youtube ================================
@@ -120,47 +115,24 @@ var span = document.getElementsByClassName("close")[0];
 
 
   });
-    // $(".eatBurg").on("click", function(event) {
-    //   var id = $(this).data("id");
-    //   //var newSleep = $(this).data("newsleep");
-  
-    //   var newDevState = {
-    //     devoured: 1
-    //   };
-  
-    //   // Send the PUT request.
-    //   $.ajax("/api/burgers/" + id, {
-    //     type: "PUT",
-    //     data: newDevState
-    //   }).then(
-    //     function() {
-    //       console.log("You ate it!");
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
-    // });
-  
-    // $(".create-form").on("submit", function(event) {
-    //   // Make sure to preventDefault on a submit event.
-    //   event.preventDefault();
-  
-    //   var newBurger = {
-    //     burger_name: $("#burger").val().trim()
-    //   };
-  
-    //   // Send the POST request.
-    //   $.ajax("/api/burgers", {
-    //     type: "POST",
-    //     data: newBurger
-    //   }).then(
-    //     function() {
-    //       console.log("created new burger");
-    //       // Reload the page to get the updated list
-    //       location.reload();
-    //     }
-    //   );
-    // });
+    $(".logoutButton").on("click", function(event) {
+
+      var logoutUser = {
+        user: 0
+      };
+
+      // Send the PUT request.
+      $.ajax("/logout", {
+        type: "POST",
+        data: logoutUser
+      }).then(
+        function() {
+          console.log("You logged out");
+          // Reload the page to get the updated list
+          // location.reload();
+        }
+      );
+    });  
   
   });
   
