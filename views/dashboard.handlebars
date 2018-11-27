@@ -1,0 +1,152 @@
+<div class="col-md-10 col-md-offset-2 main">
+{{!-- 
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> --}}
+   
+		<nav>
+			<ul class="nav">
+				<li>
+					<a class="logoutButton" href="">
+						<img class = "logImg" src="https://bpwsaskatoon.com/isl/themes/bpw/img/default-profile.jpg">
+							<div class="logout">LOGOUT</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<h1 class="page-header">Dashboard</h1>
+			<h3 class="sub-header">Progress</h3>
+			<div class="progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:15%">
+					<span class="sr-only">70% Complete</span>
+				</div>
+			</div>
+			<div class="container">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+			<th><h2 class="sub-header">Completed Activities</h2></th>
+			</tr>
+			</thead>
+			<tbody>
+				
+			<div class="row placeholders">
+				
+                {{#each data}}
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<tr><td><h4>Task</h4><pre>{{this.id}}. {{this.activity}}</pre></td></tr>
+					<h5>{{userID}}</h5>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<h4>Duration</h4><pre><!---{{this.duration}}--></pre>
+				{{/each}}
+                </div>
+			</div>
+			</tbody>
+			</table>
+			</div>
+            	
+                 <div id="share-options">
+    <div class ="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+        <th><h2>Planned Activities</h2></th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+		</table>
+  <!-- Button to Open the Modal -->
+  <button id="share" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+   Add Activity
+  </button>
+<div class="searchedMeals" id="searched"></div>
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div id="fitbit"></div>
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Activities</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+					<div id="jinx"></div>
+            <div id="categories">
+                  <select id="categories-drop" class="mr-2 form-control form-control-lg">
+                      <h1>Enter Your Activity:</h1><option id=test selected value="">Choose a Category...</option>
+                      
+                  </select><br>
+                  <h1>Enter the duration:</h1><input type="number" name="duration" min="0" max="100" step="10" class="form-control"
+                            value="30" ><!--need to figure out how to min and hrs-->
+                            <br>
+                            <input type="radio" name="heard" value="search" id="search"/>
+                            <label for="search">Planned</label> <br>
+                            <input type="radio" name="heard" value="print" id="print"/>
+                            <label for="print">Completed</label><br>
+                  <div id="choice">
+                  </div>
+                  <div class="invalid-feedback">&nbsp;</div>
+            <button id="confirm"type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
+              </div>
+         
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+        
+    
+        
+        </div>
+			
+			<div class="randomMeals" id="random">
+				<h3 class="sub-header">Check out one of the various meals below</h3>
+			</div>
+			<!-- The Modal -->
+			<div class="modal" id="ytModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<!-- Modal content -->
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h5>
+							<i class="modal-title"></i>Directions
+						</h5>
+						<div id="ytplayer" class="video-container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="search">
+				<form role="form">
+					<input type="text" name="s" class="search-form" id="enteredMeal" autocomplete="off" placeholder="Craving something?"  />
+					<button type="submit" class="glyphicon glyphicon-search" ></button>
+				</form>
+			</div>
+			<div class="searchedMeals" id="searched"></div>
+               
+    
+        
+    
+        
+        </div>
+    </div>
+   
+       
+       
+
+        
+        </div>
+		</div>
+
+       <!-- <script src="/assets/js/activity_modal-init.js"></script>
+    		<script src="/assets/js/activity_modal-window.js"></script>-->
+
+    
