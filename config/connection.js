@@ -10,7 +10,7 @@ if(process.env.JAWSDB_URL){
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "",
+  password: "Hub$chm!tt0816",
   database: "fitTasktic_db"
 });
 }
