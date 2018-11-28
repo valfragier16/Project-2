@@ -16,29 +16,95 @@
 			<h3 class="sub-header">Progress</h3>
 			<div class="progress">
 				<div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:30%">
+        aria-valuemin="0" aria-valuemax="100" style="width:15%">
 					<span class="sr-only">70% Complete</span>
 				</div>
 			</div>
-			<h2 class="sub-header">Completed Activities</h2>
+			<div class="container">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+			<th><h2 class="sub-header">Completed Activities</h2></th>
+			</tr>
+			</thead>
+			<tbody>
+				
 			<div class="row placeholders">
+				
+                {{#each data}}
 				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Task</h4>
+					<tr><td><h4>Task</h4><pre>{{this.id}}. {{this.activity}}</pre></td></tr>
 					<h5>{{userID}}</h5>
 				</div>
 				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Duration</h4>
-				</div>
+					<h4>Duration</h4><pre><!---{{this.duration}}--></pre>
+				{{/each}}
+                </div>
 			</div>
-			<h2 class="sub-header">Planned Activities</h2>
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Task</h4>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Duration</h4>
-				</div>
+			</tbody>
+			</table>
 			</div>
+            	
+                 <div id="share-options">
+    <div class ="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+        <th><h2>Planned Activities</h2></th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+		</table>
+  <!-- Button to Open the Modal -->
+  <button id="share" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+   Add Activity
+  </button>
+<div class="searchedMeals" id="searched"></div>
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      <div id="fitbit"></div>
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Activities</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+					<div id="jinx"></div>
+            <div id="categories">
+                  <select id="categories-drop" class="mr-2 form-control form-control-lg">
+                      <h1>Enter Your Activity:</h1><option id=test selected value="">Choose a Category...</option>
+                      
+                  </select><br>
+                  <h1>Enter the duration:</h1><input type="number" name="duration" min="0" max="100" step="10" class="form-control"
+                            value="30" ><!--need to figure out how to min and hrs-->
+                            <br>
+                            <input type="radio" name="heard" value="search" id="search"/>
+                            <label for="search">Planned</label> <br>
+                            <input type="radio" name="heard" value="print" id="print"/>
+                            <label for="print">Completed</label><br>
+                  <div id="choice">
+                  </div>
+                  <div class="invalid-feedback">&nbsp;</div>
+            <button id="confirm"type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
+              </div>
+         
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+        </div>
+			
 			<div class="randomMeals" id="random">
 				<h3 class="sub-header">Check out one of the various meals below</h3>
 			</div>
@@ -62,4 +128,8 @@
 				</form>
 			</div>
 			<div class="searchedMeals" id="searched"></div>
+        
+        </div>
+    </div>
+        </div>
 		</div>

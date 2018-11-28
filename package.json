@@ -1,10 +1,11 @@
 {
   "name": "FitTasktic",
   "version": "1.0.0",
-  "description": "",
+  "description": "GW Project #2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,16 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valfragier16/Project-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/valfragier16/Project-2/issues"
+  },
+  "homepage": "https://github.com/valfragier16/Project-2#readme"
 }

@@ -1,8 +1,18 @@
+.modal {
+  position: absolute;
+  z-index: 1000;
+}
+
+
 /* ul {
   padding: 5px;
   margin: 10px, auto;
 
 } */
+
+h2 {
+  text-align:left;
+}
 
 .label {
   font-weight: bold;

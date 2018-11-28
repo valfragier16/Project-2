@@ -37,6 +37,16 @@ $(function() {
 
   });
 
+  $("body").on("click", function() {
+  
+    //video = $(this).attr("alt");
+
+   
+    callFitbitModal();
+
+
+});
+
 
   function callYoutubeModal(enteredVideo) {
 
@@ -56,6 +66,24 @@ $(function() {
       $("#ytplayer").append(ytFrame);
 
   }
+
+  function callFitbitModal() {
+  
+  
+        
+    $("#fitbit").empty();
+
+    var ztFrame = $("<iframe>");
+    ztFrame.attr("id", "ytplayer");
+    ztFrame.attr("type", "text/html");
+    ztFrame.attr("width", "100%");
+    ztFrame.attr("height", 360);
+    ztFrame.attr("allow", "autoplay");
+    //ztFrame.attr("src", enteredVideo);
+    ztFrame.attr("frameborder", 0);
+    $("#fitbit").append(ztFrame);
+
+}
 
   //========== Modal to Display Youtube ================================
   var modal = document.getElementById('ytModal');
