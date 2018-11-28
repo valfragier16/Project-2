@@ -37,7 +37,7 @@ $(function() {
 
   });
 
-  $("body").on("click", function() {
+  $("body").on("click","#share", function() {
   
     //video = $(this).attr("alt");
 
@@ -161,5 +161,40 @@ $(function() {
           }
       );
   });
+
+  $("#confirm").on("click", function(e) {
+               
+    e.preventDefault();
+    var selectedCategories = $("#categories-drop").val();
+    var selectedDuration = $("#actDuration").val();
+    var radioValue = $("input[name='heard']:checked").val();
+    var boolVal = 0;
+    console.log(selectedCategories,selectedDuration,radioValue);
+
+    if (radioValue === "completed"){
+        boolVal = 1;
+    }
+    else{
+        //do nothing
+    }
+    var createActivity = {
+        activity : selectedCategories,
+        duration : selectedDuration,
+        completed : boolVal
+
+    }
+
+    $.ajax("/api/activities", {
+        type: "POST",
+        data: createActivity
+    }).then(
+        function() {
+            console.log("Activity Added");
+            // Reload the page to get the updated list
+            location.reload();
+        }
+    );
+ 
+    })
 
 });

@@ -12,18 +12,19 @@ router.get("/", function(req, res) {
       //res.render('activity_modal');
       
 
-    }),
-
-    // Create a new example
-  router.post("/api/activities", function(req, res) {
-    activity.create(["name", "duration"], [req.body.name, req.body.duration], function(result) {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
     });
+  });
+
+  //   // Create a new example
+  // router.post("/api/activities", function(req, res) {
+  //   activity.create(["name", "duration"], [req.body.name, req.body.duration], function(result) {
+  //     // Send back the ID of the new quote
+  //     res.json({ id: result.insertId });
+  //   });
   
-  });
+  // });
 
 
-  });
+  
 
   module.exports = router;

@@ -4,6 +4,7 @@ var router = express.Router();
 
 
 var auth = require("../models/authenticate.js");
+var activity = require("../models/activity");
 
 var message = "";
 var sess = "";
@@ -46,11 +47,14 @@ router.get("/index", function(req, res) {
 
 router.get("/dashboard", function(req, res) {
     if (sess) {
-        var hbsObject = {
-            userID: sess
-        };
-        console.log(hbsObject);
-        res.render("dashboard", hbsObject);
+        activity.all([sess],function(result){
+            console.log(result);
+            var hbsObject = {
+                activities: result
+            };
+            console.log(hbsObject);
+            res.render("dashboard", hbsObject);
+        })
     } else {
         message = "Please login";
         res.redirect("index");
@@ -125,6 +129,25 @@ router.post("/logout", function(req, res) {
     res.redirect("index");
 
 });
+
+    // Create a new example
+  router.post("/api/activities", function(req, res) {
+    activity.create(["activity", "duration","completed","userID"], [req.body.activity, req.body.duration,req.body.completed,sess], function(result) {
+      // Send back the ID of the new quote
+      if(result.affectedRows){
+        res.redirect("/dashboard");
+
+      }
+      else{
+        message = "Activity not added";
+        res.redirect("/dashboard", {
+            message: message
+        });
+      }
+      console.log(result);
+    });
+  
+  });
 
 
 

@@ -94,8 +94,9 @@ var orm = {
             cb(result);
         });
     },
-    all: function(tableInput, cb) {
-        var queryString = "SELECT * FROM " + tableInput + ";";
+    all: function(tableInput, val,  cb) {
+        var queryString = "SELECT * FROM " + tableInput;
+        queryString += " WHERE userID =" + val + ";";
         connection.query(queryString, function(err, result) {
           if (err) {
             throw err;
@@ -113,12 +114,25 @@ var orm = {
         })
     },
   
-    create: function(tableInput, val, cb){
-      connection.query('INSERT INTO '+tableInput+"(activity) VALUES ( '"+val+"');"+"(duration) VALUES ('"+val+"')",
-      function(err,result){
-          if(err)throw err;
-          cb(result);
-      })
+    create: function(tableInput, cols, vals, cb){
+        var queryString = "INSERT INTO " + tableInput;
+
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += printQuestionMarks(vals.length);
+        queryString += ") ";
+
+        console.log(queryString);
+
+        connection.query(queryString, vals, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
   }
 };
 

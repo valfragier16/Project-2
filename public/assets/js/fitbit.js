@@ -7,7 +7,7 @@ function getExercises(name, id, activities) {
       headers: 
        { 
          
-         authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkQ2OUIiLCJzdWIiOiIyRjM5V1YiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IiwiZXhwIjoxNTQzMzcwODAzLCJpYXQiOjE1NDMzNDIwMDN9.mWkJ53LSf8Fke5ML85q0nfmMy3snKgwJ-ozNi5NuNSE' }
+         authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkQ2OUIiLCJzdWIiOiIyRjM5V1YiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IiwiZXhwIjoxNTQzMzk5ODU5LCJpYXQiOjE1NDMzNzEwNTl9.uVoYPzFGbno7PSkNFc6RF-HXXcbce9grQwOq3Vk49V0' }
         }).then(function(res) {
              
             for(var i=0; i<res.categories.length; i++) {
@@ -24,7 +24,7 @@ function getExercises(name, id, activities) {
     };
 getExercises();
 
-function categoriesDrop(activities, selectedCategories) {
+function categoriesDrop(activities) {
    
     for(var i=0; i<activities.length; i++){
         var activityOpt = activities[i].name;
@@ -32,22 +32,15 @@ function categoriesDrop(activities, selectedCategories) {
     var newCategory = $("<option>");
               newCategory.text(activityOpt);           
               $("#categories-drop").append(newCategory);
-              $("#confirm").on("click", function(e) {
-               
-                e.preventDefault();
-                var userCategories = document.getElementById("categories-drop");
-            
-                var selectedCategories = userCategories.options[userCategories.selectedIndex].text;
-              
-            var test = $(this).data("test");
-           
-               $("#jinx").data("test", selectedCategories);
-              console.log('test:' + $("#jinx".data("test")));
-             
-                })
+
             }
 
+          
+
+
 }
+
+
   
 
 

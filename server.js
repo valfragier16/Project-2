@@ -23,9 +23,10 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/authenticate_controller.js");
-var routes = require("./controllers/fitbitController.js");
+var fitRoutes = require("./controllers/fitbitController.js");
 
 app.use(routes);
+app.use(fitRoutes);
 
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
