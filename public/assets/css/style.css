@@ -1,0 +1,101 @@
+/* ul {
+  padding: 5px;
+  margin: 10px, auto;
+
+} */
+
+.label {
+  font-weight: bold;
+}
+
+.create-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+h1,form{
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.RMPosters {
+  cursor: pointer;
+}
+
+.modal-dialog,h3,.randomMeals,.searchedMeals{
+  text-align: center;
+}
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+.logImg {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+  margin-right: 5px;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+	/* position: relative; */
+  /* right: -18px; */
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.logoutButton {
+	text-decoration: none;
+  float: right;
+  padding: 12px;
+  margin: 20px;
+  color: white;
+  width: 50px;
+  background-color: black;
+  transition: width .50s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 120px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
