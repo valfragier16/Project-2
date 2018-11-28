@@ -41,6 +41,9 @@ function categoriesDrop(activities) {
 }
 
 
+
+
+
   
 
 
