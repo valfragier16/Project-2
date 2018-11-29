@@ -1,9 +1,46 @@
+/**#dashboard {
+  background-image: url("../image/test_pic.jpg");
+  background-size: cover;
+}**/
+#dashboard{
+  background-image: url("../image/pic_four.jpg");
+  background-size: cover;
+  height:1400px;
+}
+#main{
+  background-image: url("../image/serena-feature-1.png");
+  background-size: cover;
+  height:1000px;
+}
 .modal {
   position: absolute;
   z-index: 1000;
+ 
+}
+#mainform {
+  background-image: url("../image/pic_two.jpg");
+  background-size: cover;
+  height:1000px;
 }
 
+#btn-signup{
+  margin-right:90px;
+  padding-right:20px;
+}
 
+#activity{
+  background: rgba(96, 112, 138, 0.9);
+  color: beige;
+}
+
+.page-header, .sub-header{
+  color:beige;
+}
+
+.update-activity, .delete-activity{
+  color:black;
+
+}
 /* ul {
   padding: 5px;
   margin: 10px, auto;
@@ -108,4 +145,177 @@ a:hover .logout{
 
 a {
   text-decoration: none;
+}
+
+/**responsive**/
+
+
+/** Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { 
+ 
+ 
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+ 
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+ #logbar{
+   width:100%;
+   padding-right:50px;
+
+ }
+
+ #dash{
+   width:100%;
+   padding: 25px 50px 25px 50px;
+}
+
+#first{
+  margin: 0px 25px 0px 25px;
+}
+
+.progress{
+  width:75%;
+  margin-left:113px;
+}
+
+#second{
+  width:100%;
+}
+#twitter, #spotify{
+width:300px;
+margin-left:50px;
+
+}
+
+#share-options{
+  width:600px;
+}
+
+#completed, #planned{
+  width: 500px;
+    margin-left: 100px;
+    background: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+  color:beige;
+
+}
+#third{
+  width:100%;
+}
+
+#plan{
+  width:500px;
+}
+
+#food{
+  width:100%;
+  padding-bottom: 20px;
+  color: rgb(9, 12, 12);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#share{
+  margin-left:200px;
+  margin-bottom:10px;
+  
+}
+ }
+
+ 
+
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+  #logbar{
+    width:100%;
+    padding-right:50px;
+ 
+  }
+ 
+  #dash{
+    width:100%;
+    padding: 25px 50px 25px 50px;
+ }
+ 
+ #first{
+   margin: 0px 25px 0px 25px;
+ }
+ 
+ .progress{
+   width:75%;
+   margin-left:113px;
+ }
+ 
+ #second{
+   width:100%;
+ }
+ #twitter, #spotify{
+ width:400px;
+ margin-left:125px;
+ 
+ }
+ 
+ #share-options{
+   width:700px;
+   right: -200px;
+ }
+ 
+ #completed{
+   width: 500px;
+     margin-left: 100px;
+ 
+ }
+
+ #planned{
+   width:500px;
+   margin-left:320px;
+}
+ #third{
+   width:100%;
+ }
+ 
+ #plan{
+   width:480px;
+ }
+ 
+ #food{
+   width:100%;
+   padding-bottom: 20px;
+ }
+ 
+ #share{
+   margin-left:200px;
+   margin-bottom:10px;
+ }
+
+}
+  
+
+ 
+
+
+
+
+
+
+ /**table css*/
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
