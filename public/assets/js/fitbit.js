@@ -7,7 +7,7 @@ function getExercises(name, id, activities) {
       headers: 
        { 
          
-         authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkQ2OUIiLCJzdWIiOiIyRjM5V1YiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IiwiZXhwIjoxNTQzNTA4MDc0LCJpYXQiOjE1NDM0NzkyNzR9.JT2KkJ4M1zisbLXxhww8WaC9axnYPsTQX1SgdgMXblo' }
+         authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMkQ2OUIiLCJzdWIiOiIyRjM5V1YiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyYWN0IiwiZXhwIjoxNTQzNTYxNTU3LCJpYXQiOjE1NDM1MzI3NTd9.Ph70nWMlM18UTjo22Ov8VRhedYW_2bNcHAgaDxf85lY' }
         }).then(function(res) {
              
             for(var i=0; i<res.categories.length; i++) {
