@@ -46,7 +46,7 @@
 			{{#if completed}}
 		</div>								
 			<tr>
-				<td><pre class="completedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}}</pre></td>																			
+				<td><pre class="completedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}} min</pre></td>																			
 			</tr>
 				{{/if}}				
 				{{/each}}				
@@ -76,7 +76,7 @@
 		</div>
 			<tr>
 				<td>
-					<pre class="plannedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}}</pre>
+					<pre class="plannedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}} min</pre>
 						<button class="update-activity" data-id="{{this.id}}">&#10004;</button>
 						<button class="delete-activity" data-id="{{this.id}}">&times;</button>
 					</td>																		
