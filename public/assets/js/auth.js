@@ -218,6 +218,42 @@ $(function() {
 
     }
 
+    $(".update-activity").on("click", function(event) {
+        var id = $(this).data("id");
+
+    
+        var completeActivity = {
+          completed: 1
+        };
+    
+        // Send the PUT request.
+        $.ajax("/api/activities/" + id, {
+          type: "PUT",
+          data: completeActivity
+        }).then(
+          function() {
+            console.log("Completed task");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+
+      $(".delete-activity").on("click", function(event) {
+        var id = $(this).data("id");
+    
+        // Send the DELETE request.
+        $.ajax("/api/activities/" + id, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("Deleted task");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+
 
 
 });

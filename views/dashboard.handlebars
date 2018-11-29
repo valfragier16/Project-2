@@ -81,7 +81,10 @@
 							<div class="col-xs-6 col-sm-3 placeholder planned">
 								<tr>
 									<td>
-										<pre class ="plannedAct" id = "{{this.id}}" >{{this.activity}}  | {{this.duration}}</pre>
+										<pre class ="plannedAct" id = "{{this.id}}" >{{this.activity}}  | {{this.duration}}</pre> 	
+										<button class="update-activity" data-id="{{this.id}}">&#10004;</button>
+
+										<button class="delete-activity" data-id="{{this.id}}">&times;</button>
 									</td>
 								</tr>
 							</div>

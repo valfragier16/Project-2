@@ -6,12 +6,17 @@ var activity = {
         cb(res);
       });
     },
-    update: function(id,cb){
-      orm.update('activities', id, cb);
+    update: function(objColVals, condition,cb){
+      orm.update('activities', objColVals, condition, cb);
     },
     create: function(cols, vals,cb){
       orm.create("activities", cols, vals, cb);
     },
+    delete: function(condition, cb) {
+      orm.delete("activities", condition, function(res) {
+        cb(res);
+      });
+    }
     
     
 };
