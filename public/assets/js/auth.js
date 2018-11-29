@@ -262,7 +262,7 @@ $(function() {
 // spotify playback API
 window.onSpotifyWebPlaybackSDKReady = () => {
     //must update token after an hour  @ https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
-  const token = 'BQCrEQlG8vhK7WzeLGsNq7D0nWMEBWVPlF8MAliD_Fxyv1tl0JVVUSznKTmVQGdL5dpWaUCSwvRSPfRZ_NMwlTM9BdTUOVpsydnlPEbQ53CgAlT0PJq16KcN8Mt4kzZnSoQpcoZPGdP3SKz1AJNDhE4gMjWmRI8SIzpo';
+  const token = 'BQDYY-jovDnHSGjLzCSM2ytMjsNHG2LFITkzMCcEHudz6FK9DgXOXEJlur0wxQNKd9S-HtvqVDERSPQkCZ06X_hTpjg9roPOes3irDcybWcsa3B5QMyrgC8qW9252i6SQo0q5r492K6i8kCXuQ_0Pyq6O-JWX2zcvdfw';
   const player = new Spotify.Player({
     name: 'Web Playback SDK Quick Start Player',
     getOAuthToken: cb => { cb(token); }
