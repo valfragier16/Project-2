@@ -4,6 +4,7 @@ $(function() {
   var video = "";
   var randomMealUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
   var searchedMealUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+  updateProgressBar();
   for (var i = 0; i < 5; i++) {
       $.ajax({
           url: randomMealUrl,
@@ -37,6 +38,16 @@ $(function() {
 
   });
 
+  $("body").on("click","#share", function() {
+  
+    //video = $(this).attr("alt");
+
+   
+    callFitbitModal();
+
+
+});
+
 
   function callYoutubeModal(enteredVideo) {
 
@@ -56,6 +67,24 @@ $(function() {
       $("#ytplayer").append(ytFrame);
 
   }
+
+  function callFitbitModal() {
+  
+  
+        
+    $("#fitbit").empty();
+
+    var ztFrame = $("<iframe>");
+    ztFrame.attr("id", "ytplayer");
+    ztFrame.attr("type", "text/html");
+    ztFrame.attr("width", "100%");
+    ztFrame.attr("height", 360);
+    ztFrame.attr("allow", "autoplay");
+    //ztFrame.attr("src", enteredVideo);
+    ztFrame.attr("frameborder", 0);
+    $("#fitbit").append(ztFrame);
+
+}
 
   //========== Modal to Display Youtube ================================
   var modal = document.getElementById('ytModal');
@@ -134,4 +163,130 @@ $(function() {
       );
   });
 
+  $("#confirm").on("click", function(e) {
+               
+    e.preventDefault();
+    var selectedCategories = $("#categories-drop").val();
+    var selectedDuration = $("#actDuration").val();
+    var radioValue = $("input[name='heard']:checked").val();
+    var boolVal = 0;
+    console.log(selectedCategories,selectedDuration,radioValue);
+
+    if (radioValue === "completed"){
+        boolVal = 1;
+    }
+    else{
+        //do nothing
+    }
+    var createActivity = {
+        activity : selectedCategories,
+        duration : selectedDuration,
+        completed : boolVal
+
+    }
+
+    $.ajax("/api/activities", {
+        type: "POST",
+        data: createActivity
+    }).then(
+        function() {
+            console.log("Activity Added");
+            // Reload the page to get the updated list
+            location.reload();
+        }
+    );
+ 
+    })
+
+    function updateProgressBar(){
+        var activeProgress = parseInt($(".completedAct").length + '0');
+        console.log("Completed Activities: " + activeProgress);
+
+        var elem = document.getElementsByClassName("progress-bar")[0];   
+        var width = 0;
+        
+        var id = setInterval(frame, 10);
+        function frame() {
+          if (width >= activeProgress) {
+            clearInterval(id);
+          } else {
+            width++; 
+            elem.style.width = width + '%'; 
+            elem.innerHTML = width * 1  + '%';
+          }
+        }
+
+    }
+
+    $(".update-activity").on("click", function(event) {
+        var id = $(this).data("id");
+
+    
+        var completeActivity = {
+          completed: 1
+        };
+    
+        // Send the PUT request.
+        $.ajax("/api/activities/" + id, {
+          type: "PUT",
+          data: completeActivity
+        }).then(
+          function() {
+            console.log("Completed task");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+
+      $(".delete-activity").on("click", function(event) {
+        var id = $(this).data("id");
+    
+        // Send the DELETE request.
+        $.ajax("/api/activities/" + id, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("Deleted task");
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+
+
+
 });
+
+
+// spotify playback API
+window.onSpotifyWebPlaybackSDKReady = () => {
+    //must update token after an hour  @ https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
+  const token = 'BQCrEQlG8vhK7WzeLGsNq7D0nWMEBWVPlF8MAliD_Fxyv1tl0JVVUSznKTmVQGdL5dpWaUCSwvRSPfRZ_NMwlTM9BdTUOVpsydnlPEbQ53CgAlT0PJq16KcN8Mt4kzZnSoQpcoZPGdP3SKz1AJNDhE4gMjWmRI8SIzpo';
+  const player = new Spotify.Player({
+    name: 'Web Playback SDK Quick Start Player',
+    getOAuthToken: cb => { cb(token); }
+  });
+
+  // Error handling
+  player.addListener('initialization_error', ({ message }) => { console.error(message); });
+  player.addListener('authentication_error', ({ message }) => { console.error(message); });
+  player.addListener('account_error', ({ message }) => { console.error(message); });
+  player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+  // Playback status updates
+  player.addListener('player_state_changed', state => { console.log(state); });
+
+  // Ready
+  player.addListener('ready', ({ device_id }) => {
+    console.log('Ready with Device ID', device_id);
+  });
+
+  // Not Ready
+  player.addListener('not_ready', ({ device_id }) => {
+    console.log('Device ID has gone offline', device_id);
+  });
+
+  // Connect to the player on mobile devices!
+  player.connect();
+};

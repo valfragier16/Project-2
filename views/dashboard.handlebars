@@ -1,65 +1,173 @@
-<div class="col-md-10 col-md-offset-2 main">
-{{!-- 
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> --}}
-   
-		<nav>
-			<ul class="nav">
-				<li>
-					<a class="logoutButton" href="">
-						<img class = "logImg" src="https://bpwsaskatoon.com/isl/themes/bpw/img/default-profile.jpg">
-							<div class="logout">LOGOUT</div>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<h1 class="page-header">Dashboard</h1>
-			<h3 class="sub-header">Progress</h3>
+<div id=dashboard>
+<div id="logbar" class="col-lg-6 col-md-3 col-sm-8 col-sm-2">
+	<nav>
+		<ul class="nav">
+			<li>
+				<a class="logoutButton" href="">
+					<img class = "logImg" src="https://bpwsaskatoon.com/isl/themes/bpw/img/default-profile.jpg">
+						<div class="logout">LOGOUT</div>
+				</a>
+			</li>
+				
+		</ul>
+			
+	</nav>
+</div>
+<div  id="dash" class="col-lg-6 col-md-3 col-sm-8 col-sm-2">	
+	<div id="first" class="row">
+		<h1 class="page-header">Dashboard</h1>
+	</div>
+	<div class="row">
+		<h3 class="sub-header">Progress</h3>
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:30%">
+				<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:0%">
 					<span class="sr-only">70% Complete</span>
 				</div>
 			</div>
-			<h2 class="sub-header">Completed Activities</h2>
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Task</h4>
-					<h5>{{userID}}</h5>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Duration</h4>
-				</div>
+	</div>
+</div>
+<div id="second" class= "row">
+	<div id="twitter" class="col-lg-6 col-md-3 col-sm-8 col-sm-2">
+ 	
+		 
+			<a class="twitter-timeline" data-width="300" data-height="380" data-theme="light" href="https://twitter.com/Vfrag16?ref_src=twsrc%5Etfw">Tweets by Vfrag16</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		
+	</div>
+<div class="col-lg-6 col-md-3 col-sm-8 col-sm-2" id="share-options">
+	<div id="completed"class="container" width="700">
+		<table class="table">
+			<tr>
+				<th>
+					<h2 class="sub-header">Completed Activities</h2>
+				</th>
+			</tr>					
+		<div class="row placeholders">				
+			{{#each activities}}
+			{{#if completed}}
+		</div>								
+			<tr>
+				<td><pre class="completedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}} min</pre></td>																			
+			</tr>
+				{{/if}}				
+				{{/each}}				
+		</table>		
+	</div>		
+</div>
+</div>
+	<br>
+	<br>
+	<div id="third"class= "row">
+		<div id="spotify"class="col-lg-6 col-md-3 col-sm-8 col-sm-2">
+		<div>
+			<iframe  src="https://open.spotify.com/embed/user/spotify/playlist/37i9dQZF1DX5gQonLbZD9s" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+		</div>
+		</div>
+		<div id="planned" class="col-lg-6 col-md-3 col-sm-8 col-sm-2">
+	<div id="plan" class ="container">
+		<table class="table">						
+			<tr>
+				<th>
+					<h2>Planned Activities</h2>
+				</th>
+			</tr>												
+		<div class="row placeholders">
+			{{#each activities}}
+			{{#unless completed}}
+		</div>
+			<tr>
+				<td>
+					<pre class="plannedAct" id="{{this.id}}">{{this.activity}}  | {{this.duration}} min</pre>
+						<button class="update-activity" data-id="{{this.id}}">&#10004;</button>
+						<button class="delete-activity" data-id="{{this.id}}">&times;</button>
+					</td>																		
+			</tr>							
+				{{/unless}}
+				{{/each}}
+			</table>
+			<button id="share" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+   			Add Activity
+  	</button>
+	</div>
+	
+	</div> 
+</div> 	
+
+		
+											
+	
+<!-- Button to Open the Modal -->
+	<div class="row">
+		
+<!-- The Modal -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog">
+			<div id="activity" class="modal-content">
+				<!-- <div id="fitbit"></div>
+				Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Add Activities</h4>
+					{{!-- <button type="button" class="close" data-dismiss="modal">&times;</button> --}}
 			</div>
-			<h2 class="sub-header">Planned Activities</h2>
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Task</h4>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<h4>Duration</h4>
-				</div>
-			</div>
-			<div class="randomMeals" id="random">
-				<h3 class="sub-header">Check out one of the various meals below</h3>
-			</div>
-			<!-- The Modal -->
-			<div class="modal" id="ytModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-				<!-- Modal content -->
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h5>
-							<i class="modal-title"></i>Directions
-						</h5>
-						<div id="ytplayer" class="video-container"></div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div id="jinx"></div>
+					<div id="categories">
+						<select id="categories-drop" class="mr-2 form-control form-control-lg">
+							<h1>Enter Your Activity:</h1>
+								<option id="test_selected" value="">Choose a Category...</option>
+						</select>
+						<br>
+							<h1>Enter the duration:</h1>
+								<input type="number" id="actDuration" name="duration" min="0" max="100" step="10" class="form-control" value="30" >
+								<!--need to figure out how to min and hrs-->
+						<br>
+						<input type="radio" name="heard" value="planned" id="search"/>
+							<label for="search">Planned</label>
+						<br>
+						<input type="radio" name="heard" value="completed" id="print"/>
+							<label for="print">Completed</label>
+						<br>
+					<div id="choice"></div>
+					<div class="invalid-feedback">&nbsp;</div>
+						<button id="confirm"type="submit" class="btn btn-primary" id="text-enter-button">SUBMIT</button>
 					</div>
+			</div>
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+			</div>
+		</div>
+	</div>					
+	</div>
+  					
+<div id="food" class="col-lg-6 col-md-3 col-sm-8 col-sm-2">	
+	<div class="row">	
+		<div class="randomMeals" id="random">
+			<h3 class="sub-header">Check out one of the various meals below</h3>
+		</div>
+	</div>
+	<div class="row">
+		<!-- The Modal -->
+		<div class="modal" id="ytModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<!-- Modal content -->
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h5>
+							<i class="modal-title"></i>Directions							
+						</h5>
+					<div id="ytplayer" class="video-container"></div>
 				</div>
 			</div>
+		</div>
 			<div class="search">
 				<form role="form">
 					<input type="text" name="s" class="search-form" id="enteredMeal" autocomplete="off" placeholder="Craving something?"  />
-					<button type="submit" class="glyphicon glyphicon-search" ></button>
+						<button type="submit" class="glyphicon glyphicon-search" ></button>
 				</form>
 			</div>
-			<div class="searchedMeals" id="searched"></div>
-		</div>
+			<div class="searchedMeals" id="searched"></div>																								
+	</div>									
+</div>
+</div>
