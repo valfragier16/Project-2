@@ -30,9 +30,9 @@
 			<h1 class="page-header">Dashboard</h1>
 			<h3 class="sub-header">Progress</h3>
 			<div class="progress">
-				<div class="progress-bar" role="progressbar" aria-valuenow="70"
-        aria-valuemin="0" aria-valuemax="100" style="width:30%">
-					<span class="sr-only">70% Complete</span>
+				<div class="progress-bar" role="progressbar" 
+        aria-valuemin="0" aria-valuemax="100" style="width:0%">
+					{{!-- <span class="sr-only">70% Complete</span> --}}
 				</div>
 			</div>
 			<div class="container">
@@ -49,10 +49,10 @@
 				
                 {{#each activities}}
 					{{#if completed}}
-							<div class="col-xs-6 col-sm-3 placeholder">
+							<div class="col-xs-6 col-sm-3 placeholder" >
 								<tr>
 									<td>
-										<pre>{{this.activity}}  | {{this.duration}}</pre>
+										<pre class ="completedAct" id = "{{this.id}}">{{this.activity}}  | {{this.duration}}</pre>
 									</td>
 								</tr>
 							</div>
@@ -74,14 +74,14 @@
 							</tr>
 						</thead>
 						<tbody>
-													<div class="row placeholders">
+							<div class="row placeholders">
 				
                 {{#each activities}}
 					{{#unless completed}}
-							<div class="col-xs-6 col-sm-3 placeholder">
+							<div class="col-xs-6 col-sm-3 placeholder planned">
 								<tr>
 									<td>
-										<pre>{{this.activity}}  | {{this.duration}}</pre>
+										<pre class ="plannedAct" id = "{{this.id}}" >{{this.activity}}  | {{this.duration}}</pre>
 									</td>
 								</tr>
 							</div>

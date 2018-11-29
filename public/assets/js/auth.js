@@ -4,6 +4,7 @@ $(function() {
   var video = "";
   var randomMealUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
   var searchedMealUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+  updateProgressBar();
   for (var i = 0; i < 5; i++) {
       $.ajax({
           url: randomMealUrl,
@@ -196,6 +197,28 @@ $(function() {
     );
  
     })
+
+    function updateProgressBar(){
+        var activeProgress = parseInt($(".completedAct").length + '0');
+        console.log("Completed Activities: " + activeProgress);
+
+        var elem = document.getElementsByClassName("progress-bar")[0];   
+        var width = 0;
+        
+        var id = setInterval(frame, 10);
+        function frame() {
+          if (width >= activeProgress) {
+            clearInterval(id);
+          } else {
+            width++; 
+            elem.style.width = width + '%'; 
+            elem.innerHTML = width * 1  + '%';
+          }
+        }
+
+    }
+
+
 
 });
 
