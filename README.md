@@ -1,7 +1,7 @@
 # Project-2
 GW Project #2
 
-<h1><img src="http://www.zoommedia.com/uk-staging/wp-content/uploads/sites/18/2017/11/Untitled-2-1.png" style="height: 50px; width: 50px;">FitTasktic</h1>
+<h1><img src="http://www.zoommedia.com/uk-staging/wp-content/uploads/sites/18/2017/11/Untitled-2-1.png" style="height: 50px; width: 50px;font-size: 50px;">FitTasktic</h1>
 A fitness app where you can get fit your own way!
 
 <h2>Description</h2>
