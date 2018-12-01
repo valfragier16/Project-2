@@ -36,5 +36,5 @@ If done properly, your terminmal should display the following:
 Now, open the local application on port 3000 at the URL: <i>http://localhost:3000/</i>.
 
 <h2>Presentation</h2>
-To view our presentation about our app, check it out <a href="https://www.emaze.com/@AOFZZWQCW/fittastic-app">here</a> 
-<iframe src='https://app.emaze.com/@AOFZZWQCW/fittastic-app' width='960px' height='540px' seamless webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe><a href='https://www.emaze.com' target='_blank'><img src='https://app.emaze.com/css/images/embed.png' alt='Powered by emaze' style='margin: 5px; border: none;'></a>
+To view our presentation about our app, check it out <a href="https://www.emaze.com/@AOFZZWQCW/fittastic-app">here!</a> 
+
