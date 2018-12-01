@@ -34,3 +34,6 @@ If done properly, your terminmal should display the following:
 <img src="public/assets/image/node.PNG">
 
 Now, open the local application on port 3000 at the URL: <i>http://localhost:3000/</i>.
+
+<h2>Presentation</h2>
+To view our presentation about our app, check it out <a href="https://www.emaze.com/@AOFZZWQCW/fittastic-app">here</a> 
