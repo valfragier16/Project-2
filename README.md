@@ -7,7 +7,7 @@ A fitness app where you can get fit your own way!
 <h2>Description</h2>
 This application demonstrates a simple full stack application with a front end implemented with HTML/CSS and the backend implemented with several APIs Mysql ORM Node.js and Express. HTML templating is done with the help of Handlebars.
 
-The user may select their own activities, or "tasks" to complete within their own desired time-frame. A progress bar is included to allow the use to keep track of the activites they are completing; specifically 10 activities will equal 100% completion. Additionally, the application includes a random selection of meals and directions on how to prepare the meals with detailed videos from youtube. Finally, there is a twitter timeline included, for users to view their own tweets or those of their followers, and a workout spotify playlist that users can sign-in and select different music, or listen to demo if the user does not have a spotify account.
+The user may select their own activities, or "tasks" to complete within their own desired time-frame. A progress bar is included to allow the user to keep track of the activites they are completing; specifically 10 activities will equal 100% completion. Additionally, the application includes a random selection of meals and directions on how to prepare the meals with detailed videos from youtube. Finally, there is a twitter timeline included, for users to view their own tweets or those of their followers, and a workout spotify playlist that users can sign-in and select different music, or listen to demo if the user does not have a spotify account.
 
 <img src="public/assets/image/Capture.PNG">
 <img src="public/assets/image/dashboard.PNG">
